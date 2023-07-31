@@ -69,6 +69,30 @@ For the "OK" row:Among those who received the placebo, 50.48% were not infected 
 
 ## Inferential results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+malefish <- fisher.test(table1)
+malefish
+```
+
+The given test is Pearson's Chi-squared test with Yates' continuity correction. It analyzes the relationship between two categorical variables, "treatment" and "infection status" (covid19 or OK), based on the observed counts. The test yields a chi-square statistic of 55.183, with 1 degree of freedom and an extremely low p-value of 1.098e-13, indicating a highly significant association between the variables. The expected counts under the null hypothesis are also provided. Additionally, Fisher's Exact Test is performed, yielding a similar result and indicating that the odds ratio is significantly different from 1 with a 95% confidence interval of 1.798 to 2.811.
+
+
+```{r}
+effect <- malefish$p.value/(malefish$p.value +1)
+effectivenessguy = malefish$estimate/(malefish$estimate +1)*100
+print(effectivenessguy)
+```
+
+```{r}
+low=(malefish$conf.int[1]/(malefish$conf.int[1] +1))*100
+hi=(malefish$conf.int[2]/(malefish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+
+Here is the efficacy rate for the COVID-19 vaccine among males. If the efficacy is above 50%, it indicates that the vaccine is effective. Based on the data above we are able to see that the odds ration is 69% so this shows us that the vaccine is effective in protecting males from covid 19.
 
 ## Females
 
