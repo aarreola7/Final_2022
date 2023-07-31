@@ -52,7 +52,22 @@ basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
+This plot illustrates the correlation between male participants and their susceptibility to contracting COVID-19 concerning the administration of the vaccine versus a placebo. The data reveals that approximately 70% of males who received the placebo contracted COVID-19, whereas those who received the vaccine had a lower contraction rate of around 30%.
 
+
+## Numerical results
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=male)
+rowPerc(table1)
+colPerc(table1)
+```
+The table provides data on the percentage of individuals infected and not infected with COVID-19 for two different treatment groups: placebo and vaccine.
+For the "COVID-19" row:Among those who received the placebo, 69.57% were infected with COVID-19, while 30.43% were not infected.Among those who received the vaccine, 30.43% were infected with COVID-19, while 69.57% were not infected.
+For the "OK" row:Among those who received the placebo, 50.48% were not infected (recovered or not exposed to the virus), while 49.52% were infected.Among those who received the vaccine, 49.52% were not infected (recovered or not exposed to the virus), while 50.48% were infected.The "Total" row indicates that the percentages add up to 100% for both treatment groups, as it represents the total distribution of individuals between being infected with COVID-19 and being not infected (either recovered or not exposed) for both the placebo and vaccine groups.
+
+
+## Inferential results
 
 
 ## Females
