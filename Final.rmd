@@ -157,12 +157,41 @@ options(digits=2)
 
 #### Effectiveness Confidence Interval `r low` to `r hi`
 
+The data provided reveals the efficacy rate of the COVID-19 vaccine in females. With an odds ratio of 60%, it indicates that the vaccine is effective in protecting females from COVID-19. Since the efficacy rate is above the 50% threshold, it confirms the vaccine's effectiveness. The confidence interval, spanning from 54.54% to 65.07%, further supports this conclusion, reinforcing the vaccine's ability to provide protection against COVID-19 in females.
+
 
 
 ## LGBTQ
 
+### Barplot
+
+```{r}
+dd2 <- gay %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
 
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+This plot illustrates the correlation between LGBTQ participants and their susceptibility to contracting COVID-19 in relation to receiving either the vaccine or a placebo. The data indicates that the vaccine's effectiveness was lower among the LGBTQ community compared to the placebo group. Specifically, among the LGBTQ participants who received the placebo, approximately 15% contracted COVID-19, while among those who received the vaccine, approximately 85% contracted the virus. Additionally, the plot shows that 50% of LGBTQ individuals, regardless of whether they received the vaccine or placebo, remained unaffected by COVID-19. Both plots convey the same information, with one displaying percentages and the other showing the actual count of individuals.
+
+### Numerical results
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=gay)
+rowPerc(table1)
+colPerc(table1)
+```
+
+
+### Inferential results
 ## Druggies
 
 
