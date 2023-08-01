@@ -264,4 +264,16 @@ colPerc(table1)
   The table illustrates the results of a medical treatment study comparing a vaccine and a placebo's effects on individual drug users infected with COVID-19 and those without the infection.
     Two treatment groups, "placebo" and "vaccine," were studied to evaluate their impact on COVID-19 infection rates.Among 100 individuals who received the placebo, only 12 were infected with COVID-19, while 88 remained uninfected.In contrast, among the 100 individuals who received the vaccine, 88 remained uninfected, and only 12 were infected with COVID-19.The second section of the table shows the percentages of infected individuals in each treatment group, with 0.4% in the placebo group and 3.1% in the vaccine group. Notably, the "Total" row reveals that the percentages within each treatment group add up to 100%, indicating a balanced distribution of infected and uninfected participants.
 
+
+### Inferential results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+drugfish <- fisher.test(table1)
+drugfish
+```
+
+This table presents the findings of a statistical analysis using Pearson's Chi-squared test with Yates' continuity correction on "table1" data. It investigates the relationship between treatment (placebo or vaccine) and infection status (covid19 or OK). The test reveals a strong association (p < 0.000000001) between treatment and infection status. Individuals in the vaccine group had significantly lower odds of infection (odds ratio = 0.13, 95% CI: 0.048 - 0.279) compared to those in the placebo group. Fisher's Exact Test also confirms the significant association (p < 0.0000001).
+
 # Overall Results and Conclusions
