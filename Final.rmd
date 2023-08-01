@@ -139,7 +139,23 @@ femalefish
 
 The plot presents the results of Pearson's Chi-squared test with Yates' continuity correction, comparing the observed counts of COVID-19 infections and non-infections (OK) in two treatment groups: placebo and vaccine. The Chi-square statistic is 13, with 1 degree of freedom, and a p-value of 3e-04, indicating a significant association between treatment and COVID-19 infection. Additionally, Fisher's Exact Test for Count Data was performed, yielding a p-value of 2e-04, and an estimated odds ratio of 1.5, suggesting a statistically significant difference between the two treatment groups regarding their susceptibility to COVID-19. The confidence interval for the odds ratio ranges from 1.2 to 1.9.
 
+### Effectiveness confidence interval
 
+```{r}
+effect <- femalefish$p.value/(femalefish$p.value +1)
+effectivenessfemale = femalefish$estimate/(femalefish$estimate +1)*100
+print(effectivenessfemale)
+```
+
+```{r}
+low=(femalefish$conf.int[1]/(femalefish$conf.int[1] +1))*100
+hi=(femalefish$conf.int[2]/(femalefish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+
+
+#### Effectiveness Confidence Interval `r low` to `r hi`
 
 
 
