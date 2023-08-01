@@ -253,4 +253,15 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 This plot illustrates the correlation between drug users and their susceptibility to contracting COVID-19 concerning their exposure to either the vaccine or a placebo. The data indicates that the vaccine's effectiveness was significantly lower among drug users compared to the placebo. Specifically, approximately 87.5% of drug users who received the vaccine were infected with COVID-19, while only about 12.5% of those who received the placebo contracted the virus. Additionally, the plot shows that approximately 48% to 53% of drug users, irrespective of whether they received the vaccine or placebo, remained unaffected by COVID-19. Both plots convey the same information, with the only difference being the way the data is presented—one shows percentages, while the other displays the actual count of individuals.
 
+### Numerical results
+
+```{r}
+table1 <- xtabs(~infected + treatment, data= Druguser)
+rowPerc(table1)
+colPerc(table1)
+```
+
+  The table illustrates the results of a medical treatment study comparing a vaccine and a placebo's effects on individual drug users infected with COVID-19 and those without the infection.
+    Two treatment groups, "placebo" and "vaccine," were studied to evaluate their impact on COVID-19 infection rates.Among 100 individuals who received the placebo, only 12 were infected with COVID-19, while 88 remained uninfected.In contrast, among the 100 individuals who received the vaccine, 88 remained uninfected, and only 12 were infected with COVID-19.The second section of the table shows the percentages of infected individuals in each treatment group, with 0.4% in the placebo group and 3.1% in the vaccine group. Notably, the "Total" row reveals that the percentages within each treatment group add up to 100%, indicating a balanced distribution of infected and uninfected participants.
+
 # Overall Results and Conclusions
