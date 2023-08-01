@@ -52,10 +52,10 @@ basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-This plot illustrates the correlation between male participants and their susceptibility to contracting COVID-19 concerning the administration of the vaccine versus a placebo. The data reveals that approximately 70% of males who received the placebo contracted COVID-19, whereas those who received the vaccine had a lower contraction rate of around 30%.
+This plot illustrates the correlation between male participants and their susceptibility to contracting COVID-19 concerning the administration of the vaccine versus a placebo. The data reveals that approximately 70% of males who received the placebo contracted COVID-19, whereas those who received the vaccine had a lower contraction rate of around 30%.The OK category shows us that the people who did not recieve the vaccine or the placebo were both at around 50%. One of the plots shows us the count of males  
+while the other shows the percentage.
 
-
-## Numerical results
+### Numerical results
 
 ```{r}
 table1 <- xtabs(~infected + treatment, data=male)
@@ -67,7 +67,7 @@ For the "COVID-19" row:Among those who received the placebo, 69.57% were infecte
 For the "OK" row:Among those who received the placebo, 50.48% were not infected (recovered or not exposed to the virus), while 49.52% were infected.Among those who received the vaccine, 49.52% were not infected (recovered or not exposed to the virus), while 50.48% were infected.The "Total" row indicates that the percentages add up to 100% for both treatment groups, as it represents the total distribution of individuals between being infected with COVID-19 and being not infected (either recovered or not exposed) for both the placebo and vaccine groups.
 
 
-## Inferential results
+### Inferential results
 
 ```{r}
 chisq.test(table1)
@@ -78,7 +78,7 @@ malefish
 
 The given test is Pearson's Chi-squared test with Yates' continuity correction. It analyzes the relationship between two categorical variables, "treatment" and "infection status" (covid19 or OK), based on the observed counts. The test yields a chi-square statistic of 55.183, with 1 degree of freedom and an extremely low p-value of 1.098e-13, indicating a highly significant association between the variables. The expected counts under the null hypothesis are also provided. Additionally, Fisher's Exact Test is performed, yielding a similar result and indicating that the odds ratio is significantly different from 1 with a 95% confidence interval of 1.798 to 2.811.
 
-
+### Effectiveness Confidence Interval
 ```{r}
 effect <- malefish$p.value/(malefish$p.value +1)
 effectivenessguy = malefish$estimate/(malefish$estimate +1)*100
@@ -91,10 +91,32 @@ hi=(malefish$conf.int[2]/(malefish$conf.int[2] +1))*100
 options(digits=2)
 ```
 
+#### Effectiveness Confidence Interval `r low` to `r hi`
 
 Here is the efficacy rate for the COVID-19 vaccine among males. If the efficacy is above 50%, it indicates that the vaccine is effective. Based on the data above we are able to see that the odds ration is 69% so this shows us that the vaccine is effective in protecting males from covid 19.
 
 ## Females
+
+### Barplot
+
+
+```{r}
+dd2 <- female %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+This plot depicts the relationship between female participants and their vulnerability to contracting COVID-19 in relation to receiving either the vaccine or a placebo. The data reveals that the vaccine was notably more efficacious in females compared to the placebo. Specifically, approximately 70% of females who received the placebo were infected with COVID-19, whereas only 40% of females who were vaccinated contracted the virus. Moreover, the plot indicates that 50% of females, regardless of whether they received the vaccine or placebo, remained unaffected by COVID-19. Both of these plots convey the same information, with the only distinction being the representation of data—one displays percentages, while the other exhibits the actual count of individuals.
+
+
 
 
 ## LGBTQ
