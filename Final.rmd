@@ -251,6 +251,6 @@ basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-
+This plot illustrates the correlation between drug users and their susceptibility to contracting COVID-19 concerning their exposure to either the vaccine or a placebo. The data indicates that the vaccine's effectiveness was significantly lower among drug users compared to the placebo. Specifically, approximately 87.5% of drug users who received the vaccine were infected with COVID-19, while only about 12.5% of those who received the placebo contracted the virus. Additionally, the plot shows that approximately 48% to 53% of drug users, irrespective of whether they received the vaccine or placebo, remained unaffected by COVID-19. Both plots convey the same information, with the only difference being the way the data is presented—one shows percentages, while the other displays the actual count of individuals.
 
 # Overall Results and Conclusions
