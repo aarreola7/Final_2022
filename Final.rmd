@@ -184,6 +184,8 @@ This plot illustrates the correlation between LGBTQ participants and their susce
 
 ### Numerical results
 
+
+
 ```{r}
 table1 <- xtabs(~infected + treatment, data=gay)
 rowPerc(table1)
