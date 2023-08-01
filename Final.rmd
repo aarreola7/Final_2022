@@ -198,6 +198,16 @@ colPerc(table1)
   The second table shows the percentage of infected individuals in each treatment group, in relation to the total number of individuals in that group.For the infected row 0.66% of the indiviuals in the placebo group contracted covid 19.3.5% of the individuals in the vaccine group contracted covid 19.For the 99.34 of the individuals in the placebo group  and 96.5% in the vaccine group did not contract covid 19.In conclusion, the results indicate that the COVID-19 vaccine was significantly more effective than the placebo in preventing COVID-19 infections. The vaccine group had a lower percentage of infected individuals compared to the placebo group. Specifically, the infection rate was 3.5% in the vaccine group compared to 0.66% in the placebo group.
 
 ### Inferential results
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+gaysfish <- fisher.test(table1)
+gaysfish
+```
+
+The table presents the results of a statistical analysis known as Pearson's Chi-squared test with Yates' continuity correction. It aims to investigate the relationship between two categorical variables: "infected" (with categories "covid19" and "OK") and "treatment" (with categories "placebo" and "vaccine") in the context of covid19 infection.The Chi-squared test yielded a significant Chi-square statistic of 29 with 1 degree of freedom and an extremely low p-value of 7e-08. This p-value suggests a highly significant association between "infected" and "treatment," indicating that the variables are not independent.The table contains observed counts for each combination of "infected" and "treatment," along with expected counts under the null hypothesis of independence. The contributions to the Chi-square statistic for each combination are also provided.Additionally, Fisher's Exact Test for Count Data was performed on the same dataset, yielding a p-value of 1e-08, further supporting the significant association between the variables.
+
+In conclusion, the table demonstrates a strong and highly significant relationship between covid19 infection status and the type of treatment received (placebo or vaccine). The results provide robust evidence that the variables are related and not independent, suggesting that the treatment may influence the infection status in the context of covid19.
 
 
 
