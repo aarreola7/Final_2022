@@ -276,4 +276,20 @@ drugfish
 
 This table presents the findings of a statistical analysis using Pearson's Chi-squared test with Yates' continuity correction on "table1" data. It investigates the relationship between treatment (placebo or vaccine) and infection status (covid19 or OK). The test reveals a strong association (p < 0.000000001) between treatment and infection status. Individuals in the vaccine group had significantly lower odds of infection (odds ratio = 0.13, 95% CI: 0.048 - 0.279) compared to those in the placebo group. Fisher's Exact Test also confirms the significant association (p < 0.0000001).
 
+### Effectiveness Confidence Interval
+
+```{r}
+effect <- drugfish$p.value/(drugfish$p.value +1)
+effectivenessdrug = drugfish$estimate/(drugfish$estimate +1)*100
+print(effectivenessdrug)
+```
+
+```{r}
+low=(drugfish$conf.int[1]/(drugfish$conf.int[1] +1))*100
+hi=(drugfish$conf.int[2]/(drugfish$conf.int[2] +1))*100
+options(digits=2)
+```
+#### Effectiveness Confidence Interval `r low`  to `r hi`
+
+
 # Overall Results and Conclusions
