@@ -192,8 +192,15 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
+ Based on the given results, it appears to be a comparison of the effectiveness of a placebo treatment and a vaccine for COVID-19. The results show the number of individuals infected and not infected (OK) in each treatment group (placebo and vaccine).The "infected" row represents the number of individuals who contracted COVID-19 after receiving either the placebo or vaccine.The "placebo" column shows the number of infected individuals who received the placebo treatment.The "vaccine" column shows the number of infected individuals who received the COVID-19 vaccine.
+
+    
+  The second table shows the percentage of infected individuals in each treatment group, in relation to the total number of individuals in that group.For the infected row 0.66% of the indiviuals in the placebo group contracted covid 19.3.5% of the individuals in the vaccine group contracted covid 19.For the 99.34 of the individuals in the placebo group  and 96.5% in the vaccine group did not contract covid 19.In conclusion, the results indicate that the COVID-19 vaccine was significantly more effective than the placebo in preventing COVID-19 infections. The vaccine group had a lower percentage of infected individuals compared to the placebo group. Specifically, the infection rate was 3.5% in the vaccine group compared to 0.66% in the placebo group.
 
 ### Inferential results
+
+
+
 ## Druggies
 
 
