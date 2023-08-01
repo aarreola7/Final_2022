@@ -210,6 +210,22 @@ The table presents the results of a statistical analysis known as Pearson's Chi-
 In conclusion, the table demonstrates a strong and highly significant relationship between covid19 infection status and the type of treatment received (placebo or vaccine). The results provide robust evidence that the variables are related and not independent, suggesting that the treatment may influence the infection status in the context of covid19.
 
 
+### Effectiveness Confidence Interval
+
+
+```{r}
+effect <- gaysfish$p.value/(gaysfish$p.value +1)
+effectivenessgays = gaysfish$estimate/(gaysfish$estimate +1)*100
+print(effectivenessgays)
+```
+
+```{r}
+low=(gaysfish$conf.int[1]/(gaysfish$conf.int[1] +1))*100
+hi=(gaysfish$conf.int[2]/(gaysfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+#### Effectiveness Confidence Interval `r low`  to `r hi`
 
 ## Druggies
 
