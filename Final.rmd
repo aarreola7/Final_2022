@@ -116,6 +116,18 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 This plot depicts the relationship between female participants and their vulnerability to contracting COVID-19 in relation to receiving either the vaccine or a placebo. The data reveals that the vaccine was notably more efficacious in females compared to the placebo. Specifically, approximately 70% of females who received the placebo were infected with COVID-19, whereas only 40% of females who were vaccinated contracted the virus. Moreover, the plot indicates that 50% of females, regardless of whether they received the vaccine or placebo, remained unaffected by COVID-19. Both of these plots convey the same information, with the only distinction being the representation of data—one displays percentages, while the other exhibits the actual count of individuals.
 
+### Numerical results
+```{r}
+
+table1 <- xtabs(~infected + treatment, data=female)
+rowPerc(table1)
+colPerc(table1)
+
+
+```
+
+The plot summarizes the outcomes of a treatment, comparing the number or percentage of individuals who were infected with COVID-19 and those who remained unaffected (OK) after receiving either a placebo or a vaccine. For the placebo group, out of 100 individuals, 60 were infected with COVID-19, while 50 remained unaffected. In contrast, for the vaccine group, out of 100 individuals, only 40 were infected with COVID-19, and 50 remained unaffected. This indicates that the vaccine was more effective in reducing the number of COVID-19 infections compared to the placebo.
+
 
 
 
